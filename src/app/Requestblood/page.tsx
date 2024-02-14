@@ -67,7 +67,7 @@ const Requestblood = () => {
 
         <form onSubmit={handleSubmit} className="mx-auto mb-0 mt-8 max-w-md space-y-4 shadow border-1 p-8">
           <div className="mb-5">
-            <label htmlFor="patientName" className="sr-only">Patient's Name</label>
+            <label htmlFor="patientName" className="sr-only">Patient Name</label>
             <input
               type="text"
               id="patientName"
