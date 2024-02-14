@@ -1,21 +1,18 @@
-"use client"
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 
 const OurMission = () => {
   return (
-    <div
-      className="sm:max-h-[45vh] md:max-h-[45vh] lg:h-[30vh] pt-3 mx-5 rounded-2xl"
-    >
-      <h1 className="text-4xl font-bold pl-16 pt-4 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out">
+    <div className="bg-white dark:bg-gray-900 pt-5 md:max-h-[45vh] lg:h-[30vh] ">
+      <h1 className="text-4xl font-semibold pl-16 pt-4 text-white  text-center hover:text-red-300 transition-colors duration-300 ease-in-out color:white">
         Our Mission
       </h1>
       <motion.p
-        className="text-lg px-16 font-light font-sans py-4 text-justify "
+        className="text-lg px-16 py-4 font-light text-center text-gray-600 dark:text-gray-400 text-justify"
         initial={{ opacity: 0, position: "relative", top: "-100px" }}
         animate={{ opacity: 1, position: "relative", top: "0px" }}
         transition={{ delay: 0.3, duration: 0.7 }}
-        
       >
         Our mission is to address the critical need for blood supply in the
         country by connecting donors and recipients. We provide a seamless

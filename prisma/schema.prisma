@@ -30,3 +30,16 @@ model DonorOrg {
   OrganisationState   String
   OrganisationCity    String
 }
+
+// schema.prisma
+// schema.prisma
+
+model Requestblood {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  patientName String
+  mobileNumber String
+  bloodType   String
+  hospital    String
+}
+
+

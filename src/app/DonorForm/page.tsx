@@ -86,7 +86,8 @@ const DonorForm = () => {
       transition={{ delay: 0.3, duration: 0.7 }}
       onSubmit={formik.handleSubmit}
     >
-      <div className="flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[11vh] mt-4 rounded w-full mb-[2vh]">
+       
+      <div className="flex items-center bg-gradient-to-r from-blue-900 via-blue-900 to-blue-800 h-[11vh] mt-4 rounded w-full mb-[2vh]">
         <h1 className="text-white text-2xl font-bold ml-4">
           Register as donor
         </h1>
@@ -357,7 +358,7 @@ const DonorForm = () => {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+            className="w-full sm:w-1/2 mx-auto bg-blue-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
             disabled={!formik.isValid || !formik.dirty || !formik.values.isChecked}
           >
             Register

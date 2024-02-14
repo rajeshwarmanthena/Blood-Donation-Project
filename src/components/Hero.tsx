@@ -7,42 +7,32 @@ import Image from "next/image";
 import OurMission from "./OurMission";
 import OurCollaborators from "./OurCollaborators";
 import GetBlood from "./GetBlood";
+import Footer from "./Footer";
 
 const Hero = () => {
   return (
     <>
-    <div className="flex flex-col md:flex-row justify-evenly items-center mt-5  md:min-h-[85vh] hero-section">
-      <div className="flex flex-col md:order-2 md:ml-8 w-[60vh] mx-5 ">
-        <h1 className="text-3xl w-11/12 m-auto lg:text-6xl font-bold font-serif text-center hover:text-red-300 transition-colors duration-300 ease-in-out ">
-          Save Lifes Donate Blood
-        </h1>
-
-        <p className="text-xl pt-5 text-justify mx-16 font-mono">
-          Donate blood to save lives. Your blood donation can save a life and
-          help others to live a better life and make a better future for their
-          families.
-        </p>
-        <div className="flex justify-center items-center">
-          <Link href="/">
-            <motion.button className="mt-12 px-6 py-3 rounded-md hover:opacity-80 transition-colors duration-300 mx-4 md:mx-16 mb-3 bg-red-300 text-white">
-              Get Blood Now
-            </motion.button>
-          </Link>
+    <header className="bg-white dark:bg-gray-900">
+        
+        <div className="container px-6 py-16 mx-auto">
+            <div className="items-center lg:flex">
+                <div className="w-full lg:w-1/2">
+                    <div className="lg:max-w-lg">
+                        <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Save Lifes Donate Blood</h1>
+                        <p className="mt-3 text-gray-600 dark:text-gray-400">Donate blood to save lives. Your blood donation can save a life and help others to live a better life and make a better future for their families.</p>
+                        <Link href="/">
+                            <motion.button className="w-full px-5 py-2 mt-6 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                                Get Blood Now
+                            </motion.button>
+                        </Link>
+                    </div>
+                </div>
+                <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+                    <Image src={blood} alt="logo" className="w-full h-full lg:max-w-3xl" />
+                </div>
+            </div>
         </div>
-      </div>
-      <motion.div
-        className="h-[60vh] sm:mt-10 mt-0 "
-        initial={{ opacity: 0, position: "relative", left: "-100px" }}
-        animate={{ opacity: 1, position: "relative", left: "0px" }}
-        transition={{ duration: 2 }}
-      >
-        <Image
-          src={blood}
-          alt="logo"
-          className="h-96 w-96 rounded-3xl shadow-md bg-red-50 hover:bg-red-100 transition-colors duration-500 ease-in-out"
-        />
-      </motion.div>
-    </div>
+    </header>
     <OurMission/>
     <OurCollaborators/>
     <GetBlood/>

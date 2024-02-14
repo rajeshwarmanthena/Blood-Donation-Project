@@ -1,74 +1,101 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import { BiDonateBlood } from "react-icons/bi";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { useAuth } from "@clerk/nextjs";
-
-
+import logo from '../../asset/logo.png';
+import Image from "next/image";
 const Navbar = () => {
   const { userId } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <motion.nav
-      className="sticky top-0 px-4 py-1 flex items-center justify-between shadow-md z-10 bg-slate-50"
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.2 }}
-    >
-      <div className="flex items-center rounded-full border-2 border-red-500 p-2">
-        <Link href="/" className="text-red-500">
-          <BiDonateBlood size={30} className=" hidden sm:block" />
-          <BiDonateBlood size={30} className="sm:hidden " />
-        </Link>
-      </div>
-      {userId ?
-        (
-          <ul className=" font-mono text-xl sm:flex nav-menu">
-            <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
-              <Link href="/FindBlood">Find Blood</Link>
-            </li>
-
-            <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
-              <Link href="/DonorForm">Register Donor</Link>
-            </li>
-
-            <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
-              <Link href="/OrgForm">Register Organization</Link>
-            </li>
-          </ul>) : (
-          null
-        )
-      }
-
-      {!userId ?
-        (
-          <div className="flex justify-between items-center">
-            <Link href="/sign-up">
-              <motion.button
-                className="px-4 py-2 rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black"
-                whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+    <nav className="relative bg-white shadow dark:bg-gray-800">
+      <div className="container px-6 py-4 mx-auto">
+        <div className="lg:flex lg:items-center lg:justify-between">
+          <div className="flex items-center justify-between">
+            <a href="/">
+            <Image src={logo} alt="logo" className="w-auto h-6 sm:h-7" />
+            </a>
+            <div className="flex lg:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                type="button"
+                className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                aria-label="toggle menu"
               >
-                Sign Up
-              </motion.button>
-            </Link>
-            <Link href="/sign-in">
-              <motion.button
-                className="px-4 py-2 rounded  sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black"
-                whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-              >
-                Sign In
-              </motion.button>
-            </Link>
-          </div>) :
-        (
-          <div>
-            <UserButton afterSignOutUrl="/"/>
+                {!isOpen ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 8h16M4 16h16"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
 
-        )
-      }
-    </motion.nav>
+          <div
+            className={`${
+              isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full"
+            } absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center`}
+          >
+            <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
+              <a href="/Requestblood" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                Request Blood
+              </a>
+              <a href="/FindBlood" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                Find Donor
+              </a>
+              <a href="/DonorForm" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                Register Donor
+              </a>
+              
+            </div>
+
+            <div className="flex items-center mt-4 lg:mt-0">
+              {!userId ? (
+                <>
+                  <a href="/sign-up" className="px-4 py-2 rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
+                    Sign Up
+                  </a>
+                  <a href="/sign-in" className="px-4 py-2 rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
+                    Sign In
+                  </a>
+                </>
+              ) : (
+                <UserButton afterSignOutUrl="/" />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 };
 

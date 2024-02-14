@@ -13,7 +13,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ infotext, infonumber }) => {
     return (
         <div className="h-[45vh] w-[25vw] my-0 p-0 relative flex items-center justify-center">
             <div
-                className="absolute flex items-center justify-center lg:h-[13vmin] lg:w-[13vmin] md:h-[11vmin] md:w-[11vmin] h-[12vmin] w-[12vmin] md:-left-12 lg:-left-7 md:top-1/3 lg:top-28 top-1/3 -left-7 sm:text-xl md:text-2xl lg:text-4xl  transform translate-x-1/4 rounded-full"
+                className="absolute flex items-center justify-center lg:h-[13vmin] lg:w-[13vmin] md:h-[11vmin] md:w-[11vmin] h-[12vmin] w-[12vmin] md:-left-12 lg:-left-7 md:top-1/3 lg:top-28 top-1/3 -left-7 sm:text-xl md:text-2xl lg:text-4xl  transform translate-x-1/4 rounded-full text-white" // White text color added
                 style={{ border: "5px solid ", textShadow: "0 0 2px black" }}
             >
                 {infonumber}
@@ -40,8 +40,8 @@ const InfoCard: React.FC<InfoCardProps> = ({ infotext, infonumber }) => {
 
 const GetBlood = () => {
     return (
-        <div className="sm:mb-[50px] md:mb-[150px]  lg:mb-[200px]">
-            <h1 className="text-4xl font-bold pl-16 pt-10 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out">
+        <div className="sm:mb-[50px] md:mb-[150px]  lg:mb-[200px] bg-white dark:bg-gray-900">
+            <h1 className="text-4xl font-bold pl-16 pt-10 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out text-gray-800 dark:text-white">
                 How to get Blood?
             </h1>
             <motion.div
@@ -64,7 +64,7 @@ const GetBlood = () => {
                         <div></div>
                         <div>
                             <InfoCard
-                                infotext="Donate blood and save lives, your contribution can make a difference."
+                                infotext="Add yourself as Donor and You can post request for blood"
                                 infonumber={1}
                             />
                         </div>
@@ -80,7 +80,7 @@ const GetBlood = () => {
                     <div className="grid grid-cols-3">
                         <div>
                             <InfoCard
-                                infotext="Help those in need by donating blood, a selfless act of kindness"
+                                infotext="You can find Donor of your requried blood group! "
                                 infonumber={2}
                             />
                         </div>
@@ -94,7 +94,7 @@ const GetBlood = () => {
                         </div>
                         <div className="flex justify-end">
                             <InfoCard
-                                infotext="Need blood? Connect with blood banks or donors to get the support you require"
+                                infotext="Need blood? Contact with donor and donor can even contact you "
                                 infonumber={3}
                             />
                         </div>

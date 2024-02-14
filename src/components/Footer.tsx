@@ -2,12 +2,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { BsGithub } from "react-icons/bs";
-import { RiTwitterXFill } from 'react-icons/ri'
+
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="py-10 shadow-2xl bg-slate-700 rounded-2xl text-white mt-6 mb-1 mx-4">
+    <footer className="py-10 shadow-2xl bg-slate-700  text-white ">
       <div className="container mx-auto px-4">
         <div className="md:flex md:flex-wrap md:justify-between md:items-center">
           <motion.div
@@ -26,7 +26,7 @@ const Footer = () => {
             <p className="mt-2 hover:text-red-200 font-light">
               Saving Lives Through Blood Donation
             </p>
-            <p>Feel free to to request a feature by visiting github & raising issue</p>
+            <p>Find Donars, Request Blood, Save lifes</p>
           </motion.div>
           <motion.div
             className="flex justify-center md:justify-end md:w-1/2 mt-4"
@@ -40,21 +40,14 @@ const Footer = () => {
           >
             <div className="flex space-x-8">
               <Link
-                href="https://github.com/Saurav-Pant/Blood-Donation-Project"
+                href="https://github.com/rajeshwarmanthena/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transform hover:-translate-y-1 transition-transform duration-300"
               >
                 <BsGithub size={30} className="hover:text-red-300" />
               </Link>
-              <Link
-                href="https://twitter.com/Saurav_Pant_"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transform hover:-translate-y-1 transition-transform duration-300"
-              >
-                <RiTwitterXFill size={30} className="hover:text-red-300" />
-              </Link>
+              
             </div>
           </motion.div>
         </div>
